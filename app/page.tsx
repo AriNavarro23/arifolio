@@ -21,7 +21,7 @@ import ProjectCards from "./components/ProjectCards/page";
 import InfinityScroll from "./components/infinityScroll/page";
 import ExperienceCard from "./components/ExpCard/page";
 import { switchLang } from "./share/utils/translate/page";
-import { useTranslateStore } from "./share/store/useTranslate/page";
+import { useTranslateStore } from "./share/store/useTranslateStore/page";
 
 
 export default function Home() {
@@ -36,6 +36,7 @@ export default function Home() {
     if (showTranslateToggle) {
       setShowTranslateToggle(false);
     }
+    console.log(showTranslateToggle);
   }
   
 
@@ -46,7 +47,7 @@ export default function Home() {
       className="w-full bg-moonlit select-none text-midnight flex flex-col items-center subpixel-antialiased dark:bg-dusky dark:text-noon scroll-smooth gap-5 lg:gap-10 mb-10"
       >
       <div className="w-full flex items-center justify-center mt-16 lg:mt-[3rem] fixed z-20">
-        
+        { showTranslateToggle && (
         <div className="w-full h-full relative max-w-5xl px-5 xl:max-w-7xl">
           <div className="w-auto h-auto absolute flex flex-col gap-2 px-5 py-4 -top-1 z-20 right-36 lg:right-[15rem] lg:top-4 bg-white dark:bg-raisin-black rounded-xl">
             <button
@@ -61,10 +62,11 @@ export default function Home() {
               className="text-sm font-medium cursor-pointer"
               onClick={() => switchLang("es")}
             >
+              Spanish
             </button>
           </div>
         </div>
-
+        )}
       </div>
       <Header />
       <main className="w-full flex flex-col gap-10 items-center max-w-5xl px-5 xl:max-w-7xl mt-[5.5rem]">
@@ -180,7 +182,7 @@ export default function Home() {
 							className='w-full h-10 backdrop-blur-sm absolute left-0 bottom-0 z-[2] flex items-center justify-center text-left text-opacity-70'
 						>
 							<span className='text-xs font-medium'>
-								{/*location tiile*/} ARG
+								location tiile ARG
 							</span>
 						</motion.div>
           </motion.div>
