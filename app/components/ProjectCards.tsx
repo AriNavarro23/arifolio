@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { ImStack } from 'react-icons/im';
 import { MdArrowOutward } from 'react-icons/md';
-import { ICardProject } from '@/app/share/interface/page';
+import { ICardProject } from '@/app/share/interface';
 import { useHover } from '@uidotdev/usehooks'
 import { motion } from 'framer-motion';
 

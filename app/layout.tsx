@@ -15,7 +15,7 @@ export default function RootLayout({
   children, 
 }: Readonly<{children: React.ReactNode;}>) {
   return (
-    <html lang='en' className='dark transition-colors duration-300'>
+    <html lang='en'>
       <body className={inter.className}>{children}</body>
     </html>
 

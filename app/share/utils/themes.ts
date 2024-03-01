@@ -1,4 +1,4 @@
-import { theme_types } from '../../constants/page';
+import { theme_types } from '../theme-types';
 
 export const applyThemePreference = (theme: string): void => {
 	localStorage.setItem('theme', theme)

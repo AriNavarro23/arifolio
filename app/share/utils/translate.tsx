@@ -1,4 +1,4 @@
-import { useTranslateStore } from '@/app/share/store/useTranslateStore/page'
+import { useTranslateStore } from '@/app/share/store/useTranslateStore'
 
 export const switchLang = (lang: string) => {
 	//se crea variable lang_ donde va a ser guardada el idioma que se encuentra en el store

@@ -2,29 +2,42 @@
 
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { useMediaQuery } from "@uidotdev/usehooks";
+//import { useMediaQuery } from "@uidotdev/usehooks";
 
 import { MdAlternateEmail, MdAutoGraph } from "react-icons/md";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
-import Header from "./components/Header/page";
+import Header from "./components/Header";
 
-
-
+import darkMap from "../assets/dark_map.webp";
+import lightMap from "../assets/light_map.webp";
 import FotoPerfil from "../assets/Foto perfil.jpg";
-import Footer from "./components/Footer/page";
+import Footer from "./components/Footer";
 import Image from "next/image";
 import useDevice from "./custom/device/page";
 import dynamic from "next/dynamic";
-import { ICardProject, IExpCard } from "./share/interface/page";
-import { Experiences, Projects } from "./share/utils/globals/page";
-import ProjectCards from "./components/ProjectCards/page";
-import InfinityScroll from "./components/infinityScroll/page";
-import ExperienceCard from "./components/ExpCard/page";
-import { switchLang } from "./share/utils/translate/page";
-import { useTranslateStore } from "./share/store/useTranslateStore/page";
+import { ICardProject, IExpCard } from "./share/interface";
+import { Experiences, Projects } from "./share/utils/globals";
+import ProjectCards from "./components/ProjectCards";
+import InfinityScroll from "./components/infinityScroll";
+import ExperienceCard from "./components/ExpCard";
+import { switchLang } from "./share/utils/translate";
+import { useTranslateStore } from "./share/store/useTranslateStore";
+import { theme_types } from "./share/theme-types";
+import { useTranslation } from "react-i18next";
+import { useThemeStore } from "./share/store/useThemeStore";
+import { AnimatedCounter } from "./components/AnimatedCounter";
 
 
 export default function Home() {
+  const { theme_LIGHT } = theme_types;
+
+  const theme = useThemeStore((state) => state.theme);
+
+  const { t } = useTranslation();
+
+  const [ isMobile, setIsMobile ] = useState(false);
+
+ // const mobile = useMediaQuery('only screen and (max-width: 768px)');
 
   const showTranslateToggle = useTranslateStore(
     (state) => state.showTranslateToggle);
@@ -39,6 +52,9 @@ export default function Home() {
     console.log(showTranslateToggle);
   }
   
+ {/* useEffect(() => {
+    setIsMobile(mobile);
+  }, [mobile]); */}
 
 
   return (
@@ -138,29 +154,29 @@ export default function Home() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3, duration: 0.3 }}
+            transition={{ delay: isMobile ? 0.15 : 0.3, duration: 0.3 }}
             viewport={{ once: true }}
             className="row-span-1 col-span-3 rounded-3xl bg-white relative flex flex-col overflow-hidden border-2 border-transparent gap-2 items-center justify-center dark:bg-raisin-black xl:col-span-1"
           >
             <p className="text-7xl z-[1] font-bold flex items-center gap-1">
               <span>+</span>
-             {/* <AnimatedCounter from={0} to={3} /> */}
+             <AnimatedCounter from={0} to={3} />
             </p>
             <p className="text-sm font-semibold max-w-fit opacity-70 z-[1]">
-              {/*experience title */}
+              years of experiece
             </p>
             <MdAutoGraph className="w-full h-full absolute -right-10 -bottom-12 opacity-5 dark:opacity-[0.02] p-5 z-[0]" />
           </motion.div>
           <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.35, duration: 0.3 }}
+          transition={{ delay: isMobile ? 0.2 : 0.35, duration: 0.3 }}
           viewport={{ once: true }}
           className='row-span-1 col-span-3 rounded-3xl bg-white dark:bg-raisin-black overflow-hidden border-2 border-transparent xl:col-span-1 flex items-center justify-center relative'
           >
             <Image
             	className='absolute w-full h-full object-cover z-[1]'
-              src=''
+              src={theme === theme_LIGHT ? lightMap : darkMap }
               alt='Location'
               title='Location'
               width={100}
@@ -191,7 +207,7 @@ export default function Home() {
         <motion.h1
 						initial={{ opacity: 0, y: 20 }}
 						whileInView={{ opacity: 1, y: 0 }}
-						transition={{ delay: 0.4, duration: 0.3 }}
+						transition={{ delay: isMobile ? 0 : 0.4, duration: 0.3 }}
 						viewport={{ once: true }}
 						className='text-3xl font-semibold'
 					>
@@ -200,7 +216,7 @@ export default function Home() {
         <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5, duration: 0.3 }}
+            transition={{ delay: isMobile ? 0 : 0.5, duration: 0.3 }}
             viewport={{ once: true }}
             className='opacity-70'
           >

@@ -1,5 +1,5 @@
-import { DevelopTools } from '@/app/share/utils/globals/page'
-import { IDevTools } from '@/app/share/interface/page'
+import { DevelopTools } from '@/app/share/utils/globals'
+import { IDevTools } from '@/app/share/interface'
 
 const InfinityScroll = () => {
 	return (

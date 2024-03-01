@@ -2,7 +2,7 @@ import {
 	ICardProject,
 	IExpCard,
 	IDevTools,
-} from '@/app/share/interface/page'
+} from '@/app/share/interface'
 import { v4 as uuid } from 'uuid'; 
 import crud from '@/assets/crud.png';
 import password from '@/assets/password.png';

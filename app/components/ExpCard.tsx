@@ -1,6 +1,6 @@
 import { FC } from 'react'
 import { LuExternalLink } from 'react-icons/lu'
-import { IExpCard } from '@/app/share/interface/page'
+import { IExpCard } from '@/app/share/interface'
 import { useHover } from '@uidotdev/usehooks'
 import { motion } from 'framer-motion'
 //importar use translation

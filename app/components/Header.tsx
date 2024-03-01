@@ -1,9 +1,9 @@
 import React from "react";
-import { useThemeStore } from "@/app/share/store/useThemeStore/page";
+import { useThemeStore } from "@/app/share/store/useThemeStore";
 import { FaMoon, FaSun } from "react-icons/fa";
 import { GrCloudDownload } from "react-icons/gr";
 import { LuLanguages } from "react-icons/lu";
-import { useTranslateStore } from "@/app/share/store/useTranslateStore/page";
+import { useTranslateStore } from "@/app/share/store/useTranslateStore";
 import Link from "next/link";
 
 export default function Header() {
@@ -32,7 +32,7 @@ export default function Header() {
           {theme === "light" ? (
             <button 
               title='Switch to dark theme' 
-              onClick={() => toggleTheme()}
+              onClick={() => toggleTheme("dark")}
             >
               <FaMoon className="w-6 h-6 fill-current text-[#2f3133] active:rotate-[360deg] transition-all duration-300" />
             </button>
